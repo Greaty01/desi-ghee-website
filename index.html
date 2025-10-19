@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PureVillage Ghee - Luxury Pure</title>
+    <meta name="description" content="PureVillage Ghee - Luxury pure desi ghee, traditional quality, available online.">
+    <style>
+        /* General Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #fff8f0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        header {
+            background-color: #f5e3b3;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            color: #b88b35;
+            font-size: 28px;
+        }
+
+        header .contact {
+            font-size: 14px;
+        }
+
+        header .contact a {
+            color: #333;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .product-image {
+            flex: 1 1 400px;
+            text-align: center;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-image img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .product-details {
+            flex: 1 1 400px;
+            padding: 20px;
+        }
+
+        .product-details h2 {
+            font-size: 32px;
+            color: #b88b35;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .product-details h2:hover {
+            color: #C99B44;
+        }
+
+        .tagline {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #6b4d2c;
+        }
+
+        .price {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input[type=number] {
+            width: 60px;
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        button, .whatsapp {
+            background-color: #b88b35;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        button:hover, .whatsapp:hover {
+            transform: scale(1.05);
+            background-color: #C99B44;
+        }
+
+        section.features {
+            margin-top: 40px;
+        }
+
+        section.features h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #b88b35;
+        }
+
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .feature {
+            background-color: #fff3d1;
+            padding: 15px;
+            border-radius: 10px;
+            flex: 1 1 250px;
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            text-align: center;
+            background-color: #f5e3b3;
+            color: #333;
+        }
+
+        @media(max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>PureVillage Ghee</h1>
+    <div class="contact">
+        Call / WhatsApp: <a href="tel:+917042061974">+91 70420 61974</a>
+    </div>
+</header>
+
+<div class="container">
+    <div class="main-content">
+        <div class="product-image">
+            <img id="productImage" src="https://source.unsplash.com/600x400/?ghee,bowl,jar" alt="PureVillage Ghee">
+        </div>
+        <div class="product-details">
+            <h2>Luxury Pure Desi Ghee</h2>
+            <p class="tagline">Luxury Pure — Tradition in every jar</p>
+            <p class="price">Price: <span id="totalPrice">₹1200</span></p>
+            <label for="quantity">Select quantity (kg):</label>
+            <input type="number" id="quantity" value="1" min="1" max="20">
+            <br><br>
+            <button id="calculateBtn">Calculate Price</button>
+            <a class="whatsapp" id="whatsappBtn" href="#" target="_blank">Buy on WhatsApp</a>
+        </div>
+    </div>
+
+    <section class="features">
+        <h3>Why Choose PureVillage Ghee?</h3>
+        <div class="feature-list">
+            <div class="feature">100% Pure and Natural</div>
+            <div class="feature">Made from A2 Cow Milk</div>
+            <div class="feature">Rich Aroma & Taste</div>
+            <div class="feature">Traditional Village Process</div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    &copy; 2025 PureVillage Ghee | All Rights Reserved
+</footer>
+
+<script>
+    const calculateBtn = document.getElementById('calculateBtn');
+    const totalPriceEl = document.getElementById('totalPrice');
+    const quantityInput = document.getElementById('quantity');
+    const whatsappBtn = document.getElementById('whatsappBtn');
+
+    const pricePerKg = 1200;
+    const twoKgPack = 2399;
+    const phone = '917042061974';
+
+    function calculatePrice() {
+        let qty = parseInt(quantityInput.value);
+        let total = 0;
+
+        if(qty >= 2){
+            let twoKgCount = Math.floor(qty/2);
+            let oneKgCount = qty % 2;
+            total = twoKgCount * twoKgPack + oneKgCount * pricePerKg;
+        } else {
+            total = qty * pricePerKg;
+        }
+
+        totalPriceEl.textContent = `₹${total}`;
+
+        // Update WhatsApp message
+        whatsappBtn.href = `https://wa.me/${phone}?text=Hello! I want to order ${qty} kg PureVillage Ghee. Total price: ₹${total}`;
+    }
+
+    calculateBtn.addEventListener('click', calculatePrice);
+
+    // Initialize WhatsApp link
+    calculatePrice();
+</script>
+
+</body>
+</html>
